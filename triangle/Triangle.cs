@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public static class Triangle
 {
     public static bool IsScalene(double side1, double side2, double side3)
