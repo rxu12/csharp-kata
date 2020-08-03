@@ -7,7 +7,8 @@ public static class Hamming
     {
         if (firstStrand.Length != secondStrand.Length)
             throw new ArgumentException();
-        var secondStrdChars = secondStrand.ToCharArray();
-        return firstStrand.ToCharArray().Select((c, i) => c == secondStrdChars[i] ? 0 : 1).Sum();
+        return Enumerable.Range(0, firstStrand.Length)
+        .Select(i => firstStrand[i] == secondStrand[i] ? 0 : 1)
+        .Sum();
     }
 }
