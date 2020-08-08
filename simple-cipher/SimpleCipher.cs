@@ -48,3 +48,44 @@ public class SimpleCipher
         return Translate(ciphertext, decodeChar);
     }
 }
+
+/***
+using System.Linq;
+using System.Security.Cryptography;
+
+public class SimpleCipher
+{
+    private string _key;
+
+    private const int generatedKeyLength = 100;
+    private const int numberOfLettersInAlphabet = 26;
+
+    public SimpleCipher(string key = null) => Key = key;
+    
+    public string Key 
+    {
+        get => _key ??= GenerateRandomKey();
+        private set => _key = value;
+    }
+
+    public string Encode(string plaintext) =>
+        new string(plaintext.Select((c, i) => EncodeChar(c, Key[i % Key.Length])).ToArray());
+
+    public string Decode(string ciphertext) =>
+        new string(ciphertext.Select((c, i) => DecodeChar(c, Key[i % Key.Length])).ToArray());
+
+    private static string GenerateRandomKey() =>
+        new string(Enumerable.Repeat(GenerateRandomLetter(), generatedKeyLength).ToArray());
+
+    private static char GenerateRandomLetter() =>
+        (char)(RandomNumberGenerator.GetInt32(numberOfLettersInAlphabet) + (int)'a');
+
+    private static char EncodeChar(char toEncode, char key) => NormalizeChar((int)toEncode + ShiftAmount(key));
+    private static char DecodeChar(char toDecode, char key) => NormalizeChar((int)toDecode - ShiftAmount(key));
+    private static int  ShiftAmount(char key) => (int)key - (int)'a';
+
+    private static char NormalizeChar(int ascii) =>
+        ascii < (int)'a' ? (char)(ascii + numberOfLettersInAlphabet) :
+        ascii > (int)'z' ? (char)(ascii - numberOfLettersInAlphabet) :
+        (char)ascii;
+}*/
