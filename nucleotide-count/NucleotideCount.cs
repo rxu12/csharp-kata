@@ -15,10 +15,9 @@ public static class NucleotideCount
 
         foreach (char c in sequence)
         {
-            int scr = 0;
-            if (nucDict.TryGetValue(c, out scr))
+            if (nucDict.ContainsKey(c))
             {
-                nucDict[c] = ++scr;
+                nucDict[c] = ++nucDict[c];
             }
             else
             {
