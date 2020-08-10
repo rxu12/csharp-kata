@@ -17,7 +17,7 @@ public static class NucleotideCount
         {
             if (nucDict.ContainsKey(c))
             {
-                nucDict[c] = ++nucDict[c];
+                ++nucDict[c];
             }
             else
             {
