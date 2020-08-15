@@ -34,8 +34,15 @@ public class Robot
         }
     }
 
+    private void releaseName(string spare)
+    {
+        namePool.Remove(spare);
+    }
+
     public void Reset()
     {
+        var oldName = name;
         name = MakeName();
+        releaseName(oldName);
     }
 }
