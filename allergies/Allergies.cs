@@ -23,10 +23,7 @@ public class Allergies
 
     public bool IsAllergicTo(Allergen allergen)
     {
-        string _allergen = Convert.ToString((int)allergen, 2);
-        string _maskBin = Convert.ToString(_mask, 2);
-        if (_maskBin.Length < _allergen.Length) return false;
-        return _maskBin.Substring(_maskBin.Length - _allergen.Length)[0] == '1';
+        return !(((int)allergen & _mask) == 0);
     }
 
     public Allergen[] List()
