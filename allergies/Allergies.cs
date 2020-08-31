@@ -33,6 +33,7 @@ public class Allergies
     {
         return Enum.GetValues(typeof(Allergen))
         .Cast<Allergen>()
-        .Where(a => IsAllergicTo(a)).ToArray();
+        .Where(IsAllergicTo)
+        .ToArray();
     }
 }
